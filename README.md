@@ -69,7 +69,15 @@ cat /etc/os-release
 
 <br>
 
-3. Instalamos el servicio de Chrony para mantener la hora actualizada del servidor:
+3. Con el siguiente comando actualizamos la lista de paquetes y se instalan las últimas versiones disponibles en el sistema sin pedir confirmación:
+```bash
+sudo apt update -y
+sudo apt upgrade -y
+```
+
+<br>
+
+4. Instalamos el servicio de Chrony para mantener la hora actualizada del servidor:
 ```bash
 sudo apt install chrony -y
 sudo systemctl enable chrony
@@ -80,7 +88,7 @@ timedatectl status
 
 <br>
 
-4. Instalamos todos los prerequisitos:
+5. Instalamos todos los prerequisitos:
 ```bash
 sudo apt install mariadb-server php php-cli php-common php-fpm php-curl php-mysql apache2 curl  -y
 
@@ -90,7 +98,7 @@ sudo systemctl status mariadb
 
 <br>
 
-5. Con el sigueinte comando vamos a mejorar la seguridad de la instancia de base de datos configurando una contraseña para root, eliminando accesos inseguros y aplicando cambios recomendados:
+6. Con el sigueinte comando vamos a mejorar la seguridad de la instancia de base de datos configurando una contraseña para root, eliminando accesos inseguros y aplicando cambios recomendados:
 ```bash
 sudo mysql_secure_installation
 ```
@@ -98,13 +106,13 @@ sudo mysql_secure_installation
 
 <br>
 
-6. Ahora nos conectamos a la base de datos con la contraseña que escogimos:
+7. Ahora nos conectamos a la base de datos con la contraseña que escogimos:
 ```bash
 sudo mysql -u root -p
 ```
 <br>
 
-7. Ya que estamos conectado en MySQL o MariaDB, vamos a crear la base de datos y usuario para Zabbix:
+8. Ya que estamos conectado en MariaDB, vamos a crear la base de datos y usuario para Zabbix:
 ```sql
 create database zabbix character set utf8mb4 collate utf8mb4_bin;
 create user zabbix@localhost identified by 'Laboratorio2025*';
@@ -117,3 +125,12 @@ flush privileges;
 exit
 ```
 
+<br>
+
+9. Activamos el servicio web del apache:
+```bash
+sudo systemctl enable apache2
+sudo systemctl status apache2
+```
+
+<br>
