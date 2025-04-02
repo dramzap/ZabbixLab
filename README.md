@@ -39,13 +39,81 @@ Las siguientes son las cuentas de usuario para usar en nuestro laboratorio:
 | MySQL | dba | Laboratorio2025* | Puerto TCP: 3306 |
 | PostgreSQL | postgres | Laboratorio2025* | Puerto TCP: 5432 |
 
-
-
+<br>
 
 ---
+# Paso a paso del laboratorio.
 
+<br>
 
+## Instalar VirtualBox
 
+<br>
 
+## Importar OVA en VirtualBox
 
+<br>
+
+## Instalar Zabbix 7.0 LTS
+1. Ingresamos a nuestro servidor "ZABBIX-LAB" y nos habilitamos como root para tener permisos de instalación (Nos va a requerir la contraseña):
+```bash
+sudo su root
+```
+
+<br>
+
+2. Ahora debemos asegurar que distribución y versión de Linux estamos usando:
+```bash
+cat /etc/os-release
+```
+
+<br>
+
+3. Instalamos el servicio de Chrony para mantener la hora actualizada del servidor:
+```bash
+sudo apt install chrony -y
+sudo systemctl enable chrony
+sudo systemctl status chrony
+sudo timedatectl set-timezone America/Bogota
+timedatectl status
+```
+
+<br>
+
+4. Instalamos todos los prerequisitos:
+```bash
+sudo apt install mariadb-server php php-cli php-common php-fpm php-curl php-mysql apache2 curl  -y
+
+sudo systemctl enable mariadb
+sudo systemctl status mariadb
+```
+
+<br>
+
+5. Con el sigueinte comando vamos a mejorar la seguridad de la instancia de base de datos configurando una contraseña para root, eliminando accesos inseguros y aplicando cambios recomendados:
+```bash
+sudo mysql_secure_installation
+```
+⚠️ **Advertencia:** Solo para fines educativos, sugiero que asignemos la misma contraseña que estamos manejando para todo el laboratorio. En entornos corporativos asignar contraseñas seguras.
+
+<br>
+
+6. Ahora nos conectamos a la base de datos con la contraseña que escogimos:
+```bash
+sudo mysql -u root -p
+```
+<br>
+
+7. Ya que estamos conectado en MySQL o MariaDB, vamos a crear la base de datos y usuario para Zabbix:
+```sql
+create database zabbix character set utf8mb4 collate utf8mb4_bin;
+create user zabbix@localhost identified by 'Laboratorio2025*';
+grant all privileges on zabbix.* to zabbix@localhost;
+
+set global log_bin_trust_function_creators = 1;
+
+flush privileges;
+
+exit
+```
 
