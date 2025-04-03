@@ -15,6 +15,7 @@ Adicionalmente debemos contar con:
 - Conexión a Internet
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (Software de virtualización)
 - [Descargar OVA](https://drive.google.com/drive/folders/17459DXlpWFOcxB-hEpSLbz0lO1ZAKFCV?usp=drive_link) (Este contiene las VM que vamos a importar a VirtualBox)
+- [Visual C++ Redistributable](https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170) (Sólo para Windows)
 
 <br>
 
