@@ -54,10 +54,14 @@ Las siguientes son las cuentas de usuario para usar en nuestro laboratorio:
 ### Instalación del VirtualBox
 - [Video Ejemplo #2](https://youtu.be/yv35fmlpHqo)
 
+### Crear Red NAT para el laboratorio
+- [Video Ejemplo #3](https://youtu.be/1MMwK3n4xN8)
+
 <br>
 
 ## Importar OVA en VirtualBox
-- [Video Ejemplo #3](https://youtu.be/1MMwK3n4xN8)
+- [Video Ejemplo #4](https://youtu.be/Qycnl7o-Arg)
+
 
 <br>
 
