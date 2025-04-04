@@ -68,6 +68,8 @@ Las siguientes son las cuentas de usuario para usar en nuestro laboratorio:
 <br>
 
 ## Instalar Zabbix 7.0 LTS
+- [Video Ejemplo #5](https://youtu.be/bUZ83LE2kGE)
+
 1. Ingresamos a nuestro servidor "ZABBIX-LAB" y nos habilitamos como root para tener permisos de instalación (Nos va a requerir la contraseña):
 ```bash
 sudo su root
