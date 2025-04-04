@@ -270,6 +270,41 @@ http://host/zabbix
 
 <br>
 
+## Instalar Agente Zabbix en Ubuntu
 
+1. Nos conectamos como root: 
+```bash
+sudo -s
+```
 
+<br>
 
+2. Instalamos el repositorio de Zabbix
+```bash
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu24.04_all.deb
+dpkg -i zabbix-release_latest_7.0+ubuntu24.04_all.deb
+apt update
+```
+
+<br>
+
+3. Instalamos el Zabbix agent 2
+```bash
+apt install zabbix-agent2 -y
+```
+
+<br>
+
+4. Instalamos los plugins de, Zabbix agent 2
+```bash
+apt install zabbix-agent2-plugin-mongodb zabbix-agent2-plugin-mssql zabbix-agent2-plugin-postgresql
+```
+
+<br>
+
+5. Iniciamos el proceso del Zabbix agent 2
+```bash
+systemctl restart zabbix-agent2
+systemctl enable zabbix-agent2
+```
+<br>
