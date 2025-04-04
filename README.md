@@ -328,7 +328,14 @@ systemctl enable zabbix-agent2
 
 ## Habilitar monitoreo MySQL
 
-1. Cree un usuario MySQL para la monitorización (Contraseña para el laboratorio: Laboratorio2025*):
+1. En el servidor que vamos a monitorear "UBUNTU-LAB" nos conectamos a MySQL con el usuario y contraseñas que se especificaron al principio de este documento:
+```bash
+ mysql -u dba -p
+```
+
+<br>
+
+2. Cree un usuario MySQL para la monitorización (Contraseña para el laboratorio: Laboratorio2025*):
 ```sql
 CREATE USER 'zbx_monitor'@'%' IDENTIFIED BY 'Laboratorio2025*';
 GRANT REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW,SLAVE MONITOR ON *.* TO 'zbx_monitor'@'%';
@@ -336,7 +343,7 @@ GRANT REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW,SLAVE MONITOR ON *.* T
 
 <br>
 
-2. Indique en la macro {$MYSQL.DSN} el nombre de la fuente de datos de la instancia MySQL, ya sea el nombre de la sesión del archivo de configuración del agente 2 de Zabbix o la URI. 
+3. Indique en la macro {$MYSQL.DSN} el nombre de la fuente de datos de la instancia MySQL, ya sea el nombre de la sesión del archivo de configuración del agente 2 de Zabbix o la URI. 
 - {$MYSQL.DSN}
 ```bash
 tcp://192.168.10.102:3306
@@ -344,7 +351,7 @@ tcp://192.168.10.102:3306
 
 <br>
 
-3. Defina el nombre de usuario y la contraseña en las macros de host ({$MYSQL.USER} y {$MYSQL.PASSWORD}).
+4. Defina el nombre de usuario y la contraseña en las macros de host ({$MYSQL.USER} y {$MYSQL.PASSWORD}).
 - {$MYSQL.USER}
 ```bash
 zbx_monitor
