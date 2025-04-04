@@ -339,7 +339,7 @@ GRANT REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW,SLAVE MONITOR ON *.* T
 2. Indique en la macro {$MYSQL.DSN} el nombre de la fuente de datos de la instancia MySQL, ya sea el nombre de la sesión del archivo de configuración del agente 2 de Zabbix o la URI. 
 - {$MYSQL.DSN}
 ```bash
-tcp://localhost:3306
+tcp://192.168.10.102:3306
 ```
 
 <br>
