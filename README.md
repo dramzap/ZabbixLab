@@ -338,7 +338,7 @@ systemctl enable zabbix-agent2
 2. Cree un usuario MySQL para la monitorización (Contraseña para el laboratorio: Laboratorio2025*):
 ```sql
 CREATE USER 'zbx_monitor'@'%' IDENTIFIED BY 'Laboratorio2025*';
-GRANT REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW,SLAVE MONITOR ON *.* TO 'zbx_monitor'@'%';
+GRANT REPLICATION CLIENT, PROCESS, SHOW DATABASES, SHOW VIEW ON *.* TO 'zbx_monitor'@'%';
 ```
 
 <br>
