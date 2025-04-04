@@ -302,9 +302,59 @@ apt install zabbix-agent2-plugin-mongodb zabbix-agent2-plugin-mssql zabbix-agent
 
 <br>
 
-5. Iniciamos el proceso del Zabbix agent 2
+5. Ahora ajustamos el archivo de configuracion del Agent 2 de Zabbix para apuntarlo a nuestro servidor_
+```bash
+nano /etc/zabbix/zabbix_agent2.conf
+```
+
+<br>
+
+6. Editamos el nombre del server y serveractive por la IP de nuestro servidor de Zabbix. En el Hostname asignamos el nombre de nuestro servidor
+```bash
+Server=192.168.10.100
+ServerActive=192.168.10.100
+Hostname=UBUNTU-LAB
+```
+
+<br>
+
+7. Iniciamos el proceso del Zabbix agent 2
 ```bash
 systemctl restart zabbix-agent2
 systemctl enable zabbix-agent2
 ```
+
 <br>
+
+## Habilitar monitoreo MySQL
+
+1. Cree un usuario MySQL para la monitorización (Contraseña para el laboratorio: Laboratorio2025*):
+```sql
+CREATE USER 'zbx_monitor'@'%' IDENTIFIED BY 'Laboratorio2025*';
+GRANT REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW,SLAVE MONITOR ON *.* TO 'zbx_monitor'@'%';
+```
+
+<br>
+
+2. Indique en la macro {$MYSQL.DSN} el nombre de la fuente de datos de la instancia MySQL, ya sea el nombre de la sesión del archivo de configuración del agente 2 de Zabbix o la URI. 
+- {$MYSQL.DSN}
+```bash
+tcp://localhost:3306
+```
+
+<br>
+
+3. Defina el nombre de usuario y la contraseña en las macros de host ({$MYSQL.USER} y {$MYSQL.PASSWORD}).
+- {$MYSQL.USER}
+```bash
+zbx_monitor
+```
+- {$MYSQL.PASSWORD}
+```bash
+Laboratorio2025*
+```
+
+<br>
+
+
+
