@@ -135,7 +135,7 @@ set global log_bin_trust_function_creators = 1;
 
 flush privileges;
 
-exit
+quit;
 ```
 
 <br>
@@ -150,7 +150,7 @@ sudo systemctl status apache2
 
 10. Ajustamos configuración de PHP:
 ```bash
-sudo nano /etc/php/8.1/cli/php.ini
+sudo nano /etc/php/8.3/cli/php.ini
 ```
 
 <br>
@@ -167,7 +167,7 @@ sudo nano /etc/php/8.1/cli/php.ini
 
 12. Ahora si ajustamos el archivo WWW:
 ```bash
-sudo nano /etc/php/8.1/fpm/pool.d/www.conf
+sudo nano /etc/php/8.3/fpm/pool.d/www.conf
 ```
 
 <br>
@@ -181,8 +181,8 @@ sudo nano /etc/php/8.1/fpm/pool.d/www.conf
 
 14. Revisamos que el servicio de PHP esté activo:
 ```bash
-sudo systemctl enable php8.1-fpm
-sudo systemctl status php8.1-fpm
+sudo systemctl enable php8.3-fpm
+sudo systemctl status php8.3-fpm
 ```
 
 <br>
@@ -204,39 +204,21 @@ apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sq
 
 <br>
 
-17. Nos conectamos a MariaDB con nuestra contraseña
-```bash
-mysql -uroot -p
-```
-
-<br>
-
-18. Creamos la base de datos y un usuario SQL:
-```sql
-create database zabbix character set utf8mb4 collate utf8mb4_bin;
-create user zabbix@localhost identified by 'Laboratorio2025*';
-grant all privileges on zabbix.* to zabbix@localhost;
-set global log_bin_trust_function_creators = 1;
-quit;
-```
-
-<br>
-
-19. Ahora vamos a importar el esquema inicial y los datos. Debemos usar la clave 
+17. Ahora vamos a importar el esquema inicial y los datos. Debemos usar la clave 
 ```bash
 # zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p Laboratorio2025*
 ```
 
 <br>
 
-20. Nos conectamos nuevamente a MariaDB con nuestra contraseña
+18. Nos conectamos nuevamente a MariaDB con nuestra contraseña
 ```bash
 mysql -uroot -p
 ```
 
 <br>
 
-21. Desactivamos la opción log_bin_trust_function_creators tras importar el esquema de la base de datos:
+19. Desactivamos la opción log_bin_trust_function_creators tras importar el esquema de la base de datos:
 ```sql
 set global log_bin_trust_function_creators = 0;
 quit;
@@ -244,21 +226,21 @@ quit;
 
 <br>
 
-22. Editamos el archivo maestro de Zabbix para agregar la contraseña que creamos en los pasos ateriores
+20. Editamos el archivo maestro de Zabbix para agregar la contraseña que creamos en los pasos ateriores
 ```bash
 nano /etc/zabbix/zabbix_server.conf
 ```
 
 <br>
 
-23. Editamos el archivo maestro de Zabbix para agregar la contraseña que creamos en los pasos ateriores
+21. Editamos el archivo maestro de Zabbix para agregar la contraseña que creamos en los pasos ateriores
 ```bash
 DBPassword=Laboratorio2025*
 ```
 
 <br>
 
-24. Iniciar el servidor Zabbix y los procesos de agente
+22. Iniciar el servidor Zabbix y los procesos de agente
 ```bash
 systemctl restart zabbix-server zabbix-agent2 apache2
 systemctl enable zabbix-server zabbix-agent2 apache2
@@ -266,14 +248,14 @@ systemctl enable zabbix-server zabbix-agent2 apache2
 
 <br>
 
-25. Revisamos la IP de nuestro servidor
+23. Revisamos la IP de nuestro servidor
 ```bash
 ifconfig
 ```
 
 <br>
 
-25. Abrimos la pagina de Zabbix
+24. Abrimos la pagina de Zabbix
 ```bash
 http://host/zabbix
 ```
