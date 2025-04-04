@@ -48,11 +48,16 @@ Las siguientes son las cuentas de usuario para usar en nuestro laboratorio:
 <br>
 
 ## Instalar VirtualBox
-### Visual C++ Redistributable
-- [Vídeo Ejemplo](https://youtu.be/fvFNJiUs-ok)
+### Requisito previo para Windows: Instalar el Visual C++ Redistributable
+- [Video Ejemplo #1](https://youtu.be/fvFNJiUs-ok)
+
+### Instalación del VirtualBox
+- [Video Ejemplo #2](https://youtu.be/yv35fmlpHqo)
+
 <br>
 
 ## Importar OVA en VirtualBox
+- [Video Ejemplo #3](https://youtu.be/1MMwK3n4xN8)
 
 <br>
 
