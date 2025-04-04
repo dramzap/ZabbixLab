@@ -204,7 +204,7 @@ apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sq
 
 <br>
 
-17. Ahora vamos a importar el esquema inicial y los datos. Debemos usar la clave 
+17. Ahora vamos a importar el esquema inicial y los datos. Debemos usar la clave de base de datos
 ```bash
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
@@ -255,10 +255,16 @@ ifconfig
 
 <br>
 
-24. Abrimos la pagina de Zabbix
+24. Abrimos la pagina de Zabbix y seguimos el asistente para finalizar la instalación:
 ```bash
 http://host/zabbix
 ```
+
+<br>
+
+25. Abrimos la pagina de Zabbix y seguimos el asistente para finalizar la instalación:
+- Usuario: Admin
+- Contraseña: zabbix
 
 <br>
 
