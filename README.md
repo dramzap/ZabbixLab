@@ -39,7 +39,7 @@ Las siguientes son las cuentas de usuario para usar en nuestro laboratorio:
 | Tipo | Usuario | Contraseña | Observaciones |
 |----------|----------|----------|----------|
 | Sistema Operativo | dba | Laboratorio2025* | N/A |
-| MySQL | dba | Laboratorio2025* | Puerto TCP: 3306 |
+| MySQL | root | Laboratorio2025* | Puerto TCP: 3306 |
 | PostgreSQL | postgres | Laboratorio2025* | Puerto TCP: 5432 |
 
 <br>
@@ -330,7 +330,7 @@ systemctl enable zabbix-agent2
 
 1. En el servidor que vamos a monitorear "UBUNTU-LAB" nos conectamos a MySQL con el usuario y contraseñas que se especificaron al principio de este documento:
 ```bash
- mysql -u dba -p
+ mysql -u root -p
 ```
 
 <br>
