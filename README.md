@@ -258,6 +258,27 @@ DBPassword=Laboratorio2025*
 
 <br>
 
+24. Iniciar el servidor Zabbix y los procesos de agente
+```bash
+systemctl restart zabbix-server zabbix-agent2 apache2
+systemctl enable zabbix-server zabbix-agent2 apache2
+```
+
+<br>
+
+25. Revisamos la IP de nuestro servidor
+```bash
+ifconfig
+```
+
+<br>
+
+25. Abrimos la pagina de Zabbix
+```bash
+http://host/zabbix
+```
+
+<br>
 
 
 
