@@ -271,6 +271,8 @@ http://host/zabbix
 <br>
 
 ## Instalar Agente Zabbix en Ubuntu
+- [Video Ejemplo #6](https://youtu.be/KOTntjxRVa0) - Instalar Agente
+- [Video Ejemplo #7](https://youtu.be/F26Kvvfau8Y) - Crear Host
 
 1. Nos conectamos como root: 
 ```bash
@@ -327,6 +329,7 @@ systemctl enable zabbix-agent2
 <br>
 
 ## Habilitar monitoreo MySQL
+- [Video Ejemplo #8](https://youtu.be/wJt0gpoU6E4)
 
 1. En el servidor que vamos a monitorear "UBUNTU-LAB" nos conectamos a MySQL con el usuario y contraseñas que se especificaron al principio de este documento:
 ```bash
@@ -364,6 +367,7 @@ Laboratorio2025*
 <br>
 
 ## Habilitar el monitoreo en PostgreSQL
+- [Video Ejemplo #9](https://youtu.be/X4bq7zg2wys)
 
 1. Ingresamos a Postgres cambiando el usuario
 ```bash
@@ -408,5 +412,7 @@ Laboratorio2025*
 <br>
 
 ## Habilitar el monitoreo en Apache
+- [Video Ejemplo #10](https://youtu.be/MCO1kepRJrg)
 
+<br>
 
