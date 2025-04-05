@@ -363,5 +363,50 @@ Laboratorio2025*
 
 <br>
 
+## Habilitar el monitoreo en PostgreSQL
+
+1. Ingresamos a Postgres cambiando el usuario
+```bash
+sudo -i -u postgres
+```
+
+<br>
+
+2. Nos conectamos a la base de datos
+```bash
+psql
+```
+
+<br>
+
+3. Cree el usuario de PostgreSQL para la monitorización (<contraseña>, a su discreción) y herede los permisos del rol predeterminado pg_monitor:
+```sql
+CREATE USER zbx_monitor WITH PASSWORD 'Laboratorio2025*' INHERIT;
+GRANT pg_monitor TO zbx_monitor;
+\q
+```
+
+<br>
+
+2. Agregamos la Plantilla al host y creamos las siguientes Macros:
+
+- {$PG.URI}
+```bash
+tcp://192.168.10.102:5432
+```
+
+- {$PG.USER}
+```bash
+zbx_monitor
+```
+
+- {$PG.PASSWORD}
+```bash
+Laboratorio2025*
+```
+
+<br>
+
+## Habilitar el monitoreo en Apache
 
 
