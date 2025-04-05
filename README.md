@@ -416,3 +416,8 @@ Laboratorio2025*
 
 <br>
 
+## Instalar el agente en Windows
+- [Video Ejemplo #11](https://drive.google.com/file/d/1Mmk5cuMFpS4ILFDNrjF8FJPu097HM7wY/view)
+
+<br>
+
